@@ -8,10 +8,10 @@ import {
 import { protectedRoute } from "../middleware/auth.middleware.js";
 
 const router = express.Router()
-
-router.get("/contacts", protectedRoute, getAllContacts);
+router.use(protectedRoute)
+router.get("/contacts", getAllContacts);
 router.get("/chats", getChatPartners);
-router.get("/:id", protectedRoute, getMessagesByUserId);
-router.post("/send/:id", protectedRoute, sendMessage);
+router.get("/:id", getMessagesByUserId);
+router.post("/send/:id", sendMessage);
 
 export default router
