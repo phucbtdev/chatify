@@ -11,7 +11,7 @@ const router = express.Router()
 
 router.get("/contacts", protectedRoute, getAllContacts);
 router.get("/chats", getChatPartners);
-router.get("/:id", getMessagesByUserId);
-router.post("/send/:id", sendMessage);
+router.get("/:id", protectedRoute, getMessagesByUserId);
+router.post("/send/:id", protectedRoute, sendMessage);
 
 export default router
